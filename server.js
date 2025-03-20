@@ -35,10 +35,18 @@ app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
-   // Render index.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-   response.render('index.liquid')
+  const vacatureResponse = await fetch('https://fdnd-agency.directus.app/items/dda_agencies_vacancies');
+  const vacatureResponseJSON = await vacatureResponse.json();
+
+   response.render('index.liquid', { vacatures: vacatureResponseJSON.data })
 })
+
+// app.get('/detail', async function (request, response) {
+//   const personResponse = await fetch('https://fdnd-agency.directus.app/items/dda_agencies');
+//   const personResponseJSON = await personResponse.json();
+//   response.render('detail.liquid')
+
+// })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
@@ -56,4 +64,8 @@ app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
+})
+
+app.use((req, res, next) => {
+  res.status(404).send("Sorry can't find that!")
 })
