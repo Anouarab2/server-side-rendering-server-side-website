@@ -1,0 +1,72 @@
+body{
+    font-family: Archivo, sans-serif;
+    margin: 0;
+}
+
+h1{
+    font-size: 3em;
+    margin: 0;
+    padding: .3em;
+    font-weight: 650;
+}
+
+header{
+    /* border-bottom: .05em solid black; */
+
+    nav{
+        border-bottom: .05em solid black;
+
+        svg{
+            height: 2em;
+        }
+    }
+
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom: .05em solid black;
+        padding-block: 3em;
+        p{
+            text-align: center;
+            max-width: 250px;
+            line-height: 1.5em;
+        }
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+    li{
+        list-style: none;
+    }
+    
+}
+
+.side-bar{
+    /* background-color: green; */
+}
+
+main{
+    padding: 1em;
+    details{
+        border-bottom: .05em solid black;
+        padding-bottom: 1em;
+    }
+
+}
+
+.vacature{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    h2{
+        font-weight: 400;
+        grid-column: 1/-1;
+        
+    }
+}
+
+
